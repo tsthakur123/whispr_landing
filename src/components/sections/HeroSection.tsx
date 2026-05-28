@@ -10,23 +10,22 @@ export const HeroSection = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToHowItWorks = () => {
-    const element = document.getElementById('how-it-works');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative min-h-screen flex flex-col items-center overflow-hidden px-6 pt-32">
-      {/* Background Ambient Glows */}
-      <AmbientGlow color="pink" size="xl" className="top-[-10%] left-[-10%] opacity-30" />
-      <AmbientGlow color="indigo" size="lg" className="bottom-[10%] right-[-5%] opacity-20" />
-      <AmbientGlow color="cyan" size="md" className="top-[40%] right-[10%] opacity-10" />
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 bg-[#0D0D0D]">
+      {/* Massive slow-breathing background glow */}
+      <motion.div
+        animate={{ opacity: [0.1, 0.25, 0.1], scale: [1, 1.1, 1] }}
+        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
+      >
+        <AmbientGlow color="purple" size="xl" className="opacity-100 mix-blend-screen" />
+      </motion.div>
 
       <div className="z-10 flex flex-col items-center justify-center text-center max-w-4xl mx-auto flex-1">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           <h1 className="font-poppins text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
             What if you connected <br className="hidden md:block" />
@@ -37,40 +36,36 @@ export const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          <p className="font-inter text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            An anonymous matchmaking experience where conversations come before appearances. Meet strangers anonymously. Talk freely. Reveal only if the vibe matches.
+          <p className="font-inter text-lg md:text-xl text-[#9CA3AF] mb-12 tracking-wide uppercase text-sm">
+            An experiment in connection.
           </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
         >
-          <Button variant="primary" size="lg" onClick={scrollToWaitlist} className="w-full sm:w-auto">
+          <Button variant="primary" size="lg" onClick={scrollToWaitlist} className="w-full sm:w-auto text-lg px-12">
             Join the Waitlist
-          </Button>
-          <Button variant="glass" size="lg" onClick={scrollToHowItWorks} className="w-full sm:w-auto">
-            How it works
           </Button>
         </motion.div>
       </div>
 
-      {/* Optional scroll indicator */}
+      {/* Subtle scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="flex flex-col items-center gap-2 text-gray-500 pb-8 mt-8"
+        transition={{ delay: 1.5, duration: 1.5 }}
+        className="flex flex-col items-center gap-2 text-gray-600 pb-8 mt-8 z-10"
       >
-        <span className="text-sm font-inter tracking-widest uppercase">Scroll to explore</span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-px h-12 bg-gradient-to-b from-gray-500 to-transparent"
+          animate={{ y: [0, 10, 0], opacity: [0.3, 1, 0.3] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="w-[1px] h-16 bg-gradient-to-b from-gray-500 to-transparent"
         />
       </motion.div>
     </section>

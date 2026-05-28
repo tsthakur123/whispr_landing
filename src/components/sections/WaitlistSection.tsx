@@ -37,12 +37,9 @@ export const WaitlistSection = () => {
           transition={{ duration: 0.8 }}
         >
           <GlassCard className="text-center md:p-12">
-            <h2 className="text-3xl md:text-5xl font-poppins font-bold text-white mb-4">
-              Secure your spot.
+            <h2 className="text-3xl md:text-5xl font-poppins font-bold text-white mb-10 tracking-tight">
+              Some people are already inside.
             </h2>
-            <p className="text-gray-400 font-inter mb-10 max-w-md mx-auto">
-              Drop your email or Instagram username to join the early access waitlist.
-            </p>
 
             <AnimatePresence mode="wait">
               {status === 'success' ? (

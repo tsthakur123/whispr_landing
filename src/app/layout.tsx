@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Whispr — Anonymous Matchmaking & Conversation-First Dating",
-  description: "Whispr is a Gen Z dating app focused on real connections. Meet strangers anonymously. Talk freely. Reveal only if the vibe matches. Because the best connections don’t start with appearances.",
+  description: "Whispr is an experiment in connection. Meet strangers anonymously. Talk freely. Reveal only if the vibe matches. Because the best connections don’t start with appearances.",
   keywords: ["anonymous dating", "anonymous matchmaking", "Gen Z dating app", "conversation-first dating", "anonymous chat platform", "real connections", "Whispr"],
   metadataBase: new URL('https://whispr.in'),
   alternates: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Whispr — Talk First. Reveal Later.",
-    description: "An anonymous matchmaking experience where conversations come before appearances. Meet strangers anonymously. Talk freely. Reveal only if the vibe matches.",
+    description: "An experiment in connection where conversations come before appearances. Meet strangers anonymously. Talk freely. Reveal only if the vibe matches.",
     url: 'https://whispr.in',
     siteName: 'Whispr',
     images: [
@@ -76,6 +76,8 @@ const jsonLd = {
   }
 };
 
+import { CursorGlow } from "@/components/ui/CursorGlow";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,6 +95,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#0D0D0D] text-white flex flex-col font-sans selection:bg-purple-500/30 selection:text-white">
+        <CursorGlow />
         {children}
       </body>
     </html>
